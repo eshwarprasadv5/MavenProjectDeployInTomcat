@@ -1,9 +1,0 @@
-#cp /opt/apache-maven-3.8.4/conf/settings.xml 
-<!-- Settings.xml has follwing added i.e; Tomcat server username and password
- <server>
-      <id>TomcatServer</id>
-      <username>admin</username>
-      <password>admin</password>
-    </server>
--->
-
