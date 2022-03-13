@@ -1,0 +1,23 @@
+--update the file by commenting as follows in /opt/apache-tomcat-9.0.59/webapps/manager/META-INF context.xml (sample file in tomcat branch in this repo)
+
+<Context antiResourceLocking="false" privileged="true" >
+  <CookieProcessor className="org.apache.tomcat.util.http.Rfc6265CookieProcessor"
+                   sameSiteCookies="strict" />
+  <!--  <Valve className="org.apache.catalina.valves.RemoteAddrValve"
+          allow="127\.\d+\.\d+\.\d+|::1|0:0:0:0:0:0:0:1" />-->
+  <Manager sessionAttributeValueClassNameFilter="java\.lang\.(?:Boolean|Integer|Long|Number|String)|org\.apache\.catalina\.filters\.CsrfPreventionFilter\$LruCache(?:\$1)?|java\.util\.(?:Linked)?HashMap"/>
+</Context>
+
+--Add the tomcat users, passwords and roles data as follows in /opt/apache-tomcat-9.0.59/conf/tomcat-users.xml (sample file in tomcat branch in this repo)
+
+ <role rolename="manager-gui"/>
+  <role rolename="manager-jmx"/>
+  <role rolename="manager-script"/>
+  <role rolename="manager-status"/>
+  <role rolename="tomcat" password="tomcat" roles="manager-gui"/>
+  <user username="admin" password="admin" roles="manager-gui,manager-jmx,manager-script,manager-status"/>
+
+
+
+
+
